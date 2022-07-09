@@ -3,8 +3,8 @@ Contributors: alexlead
 Donate link: https://sobe.ru/na/freeware_open_graph_headers_for_wp 
 Tags: open graph headers for wp, wp, opengraph, open, graph, seo, meta tags, facebook, protocol, social sharing, word press, social media, wordpress
 Requires at least: 4.0
-Tested up to: 5.5.0
-Stable tag: 1.0.0
+Tested up to: 6.0.0
+Stable tag: 1.0.1
 License: GPL
 License URI: https://www.gnu.org/licenses/gpl-3.0.html 
 
@@ -48,3 +48,13 @@ Add to your posts excertions and thumbnail images - these details are more impor
 == Upgrade notice ==
 
 The current version of WP Open Graph requires WordPress 4.0 or higher.
+
+1.0.1 Test 6.0 + Fixed some error
+
+== Upgrade notice ==
+
+The current version of WP Open Graph tested with WP 6.0
+Fixed issues:
+- images
+- audio src 
+- video src 

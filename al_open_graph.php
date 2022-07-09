@@ -3,7 +3,7 @@
 * Plugin Name: Open Graph Headers for WP
 * Description: Plugin adds meta tags to pages for sharing on social nets with OpenGraph standards (https://ogp.me/). There is no any features. Upload plugin folder to the `/wp-content/plugins/` directory. Activate the plugin through the 'Plugins' menu in WordPress. Enjoy!
 * Plugin URI: https://github.com/alexlead/al_open_graph
-* Version: 1.0.0
+* Version: 1.0.1
 * Author: Alexander Lead
 * Author URI: https://codepen.io/alexlead/
 * License: GPL 
@@ -99,8 +99,8 @@ if( !function_exists( 'al_og_page_image' ) ){
 
         }
 
-        // take blog logo for pther cases
-        $image_url = wp_get_attachment_image_src( get_theme_mod( 'custom_logo' ), 'full' )[0];
+        // take blog logo for other cases
+        $image_url = wp_get_attachment_image_url( get_theme_mod( 'custom_logo' ), 'full' );
         
 
 
@@ -134,7 +134,7 @@ if( !function_exists( 'al_og_page_type' ) ){
 */
 if( !function_exists( 'al_og_page_audio' ) ){
     function al_og_page_audio(){
-        $audio_url = '';
+
         // get post id
         $id = get_queried_object_id();
         // get all audio from post
@@ -144,7 +144,7 @@ if( !function_exists( 'al_og_page_audio' ) ){
         $attachment_audio = array_shift($attachment_audio);
 
         // get audio URL
-        $audio_url = wp_get_attachment_url( $attachment_audio->ID );
+        $audio_url = (is_array( $attachment_audio ) ) ?  $attachment_audio->guid : '';
 
         return $audio_url;
     }
@@ -156,7 +156,7 @@ if( !function_exists( 'al_og_page_audio' ) ){
 */
 if( !function_exists( 'al_og_page_video' ) ){
     function al_og_page_video(){
-        $video_url = '';
+
         // get post id
         $id = get_queried_object_id();
         // get all video from post
@@ -166,7 +166,7 @@ if( !function_exists( 'al_og_page_video' ) ){
         $attachment_video = array_shift($attachment_video);
 
         // get video URL
-        $video_url = wp_get_attachment_url( $attachment_video->ID );
+        $video_url = (is_array( $attachment_video ) ) ?  $attachment_video->guid : '';
 
         return $video_url;
     }
